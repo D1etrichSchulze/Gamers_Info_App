@@ -49,8 +49,8 @@ namespace GamersInfoApp.Controllers
         // GET: Gamer_Game/Create
         public IActionResult Create()
         {
-            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "GameID");
-            ViewData["GamerID"] = new SelectList(_context.Gamer, "GamerID", "GamerID");
+            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "GameName");
+            ViewData["GamerID"] = new SelectList(_context.Gamer, "GamerID", "GamerName");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace GamersInfoApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["GameID"] = new SelectList(_context.Game, "GameID", "GameID", gamer_Game.GameID);
-            ViewData["GamerID"] = new SelectList(_context.Gamer, "GamerID", "GamerID", gamer_Game.GamerID);
+            ViewData["GamerID"] = new SelectList(_context.Gamer, "GamerID", "GamerName", gamer_Game.GamerID);
             return View(gamer_Game);
         }
 
