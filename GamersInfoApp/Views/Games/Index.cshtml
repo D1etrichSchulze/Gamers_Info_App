@@ -1,0 +1,44 @@
+﻿@model IEnumerable<GamersInfoApp.Models.Game>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Games</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Game Name
+            </th>
+            <th>
+                Game Genre
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameGenre)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.GameID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.GameID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.GameID">Delete</a>
+            </td>
+            <td>
+                 <img height="100" width="200" src="https://mlo1wbhvgmgt.i.optimole.com/w:auto/h:auto/q:mauto/f:best/https://pethero.co.za/wp-content/uploads/2024/04/puppy-health.jpg"></img>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
